@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 
 const app = express();
 const port = 3500;
@@ -20,6 +21,11 @@ mongoose
   .catch((error) => {
     console.error("Error connecting to MongoDB:", error);
   });
+
+// Enable CORS for all routes
+app.use(cors({
+    origin:  'http://localhost:4200',
+}));
 
 app.use(express.json());
 

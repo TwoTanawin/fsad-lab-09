@@ -1,30 +1,16 @@
 <p>success works!</p>
-<button (click)="toggleNames()">{{ buttonLabel }}</button>
+<button (click)="changeShowNames()">{{ buttonLabel }}</button>
 <div *ngIf="showNames">
-   <ol>
-       <li *ngFor="let name of names">{{name}}</li>
-   </ol>
+  <ol>
+    <li *ngFor="let name of names">{{ name }}</li>
+  </ol>
 </div>
-<br/>
-<br/>
-<div class="container">
-    <div class="box">Div1</div>
-    <div class="box">Div2</div>
-    <div class="box">Div3</div>
-</div>
+<ng-container *ngIf="authService.isLoggedIn">
+  <div>Profile</div>
+  <div>{{ user.first_name }}</div>
+  <div>{{ user.last_name }}</div>
+  <div>{{ user.email }}</div>
+</ng-container>
 
-<!-- <div class="grid-container">
-    <div class="box">Div4</div>
-    <div class="box">Div5</div>
-    <div class="box">Div6</div>
-</div> -->
+<button (click)="logout()">Logout</button>
 
-<div class="grid-container">
-    <div class="box">Div1</div>
-    <div class="box">Div2</div>
-    <div class="box">Div3</div>
-    <div class="box">Div4</div>
-    <div class="box">Div5</div>
-    <div class="box">Div6</div>
-    <div class="box">Div7</div>
-</div>
